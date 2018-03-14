@@ -52,7 +52,7 @@ RSpec.describe 'Todos API', type: :request do
       
       it 'returns a not found message' do 
         
-        expect(response.body).to match(/Couldn't find Todo'/)
+        expect(response.body).to match(/Couldn't find Todo/)
       end
     end 
   end
@@ -81,12 +81,11 @@ RSpec.describe 'Todos API', type: :request do
       before {post '/todos', params: {title: 'Foobar'}}
       
       it 'returns status code 422' do 
-        expect(response).to have_http_staus(422)
+        expect(response).to have_http_status(422)
       end
       
       it 'returns a validation failure message' do 
-        expect(response.body)
-          .to match(/Validation failed: Created by can't be blank'/)
+        expect(response.body).to match(/Validation failed: Created by can't be blank/)
       end
     end
   end
